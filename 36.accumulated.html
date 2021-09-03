@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accumulated累進值</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        box
+    </div>
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+        // $('.box').on('click',function(){
+        //     // console.log('hi');
+        //     const boxWidth = $('.box').css('width'); //先拿到box的寬
+        //     console.log('boxWidth',boxWidth);
+        //     console.log('boxWidth+10',boxWidth+10);//會拿到一個nan
+        //     console.log('boxWidth+10',parseInt(boxWidth)+10); //parseInt()解析一個字串，然後返回一個整數
+        //     $('.box').css('width', parseInt(boxWidth)+10); //針對這個box的寬改成新的數字
+        // }); 這是正統寫法，但下方有更精簡的
+
+        $('.box').on('click', function(){
+            $(this).css("width", "+=100");
+        });
+    </script>
+</body>
+</html>

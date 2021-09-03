@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <ul class="level-1">
+                <li class="item-1">item-1</li>
+                <li class="item-2">item-2
+                    <ul class="level-2">
+                        <li class="item-01">item-01</li>
+                        <li class="item-02">item-02
+                            <ul class="level-3">
+                                <li class="item-001">item-001</li>
+                                <li class="item-002">item-002</li>
+                                <li class="item-003">item-003</li>
+                                <li class="item-004">item-004</li>
+                                <li class="item-005">item-005</li>
+                            </ul>
+                        </li>
+                        <li class="item-03">item-03</li>
+                    </ul>
+                </li>
+                <li class="item-3">item-3</li>
+            </ul>
+        </div>
+    </div>
+<script src="./JS/jquery-3.6.0.js"></script>
+<script>
+     $('.item-005').prevAll().css('border', '1px solid green');
+     //prevAll:往前即之前的所有元素(同層不包含設定的自己)
+    // $('.item-02').prev().css('border', '1px solid green');
+     //prev往前找一個元素(同一層)
+    // $('.item-001').next().next().css('border', '1px solid green');
+    //  next會限制在家族裡面
+    // $('.item-001').nextUntil('.item-005').css('border', '1px solid green');
+    // nextUntil從開始到...為止，頭尾皆不包含
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <button id="sayHi" class="btn btn-primary">Hi</button>
+    <button id="on" class="btn btn-primary">on</button>
+    <button id="off" class="btn btn-primary">off</button>
+    
+    
+    
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+        //就不用寫這麼一長串了
+        //function綁定與解除時候，必須指向同一個記憶體位置，個別不同function>位置不相等>綁解就會綁錯人解錯人
+        const sayHi = function (){
+            console.log('say hi');
+        }
+        //讓他成為一個變數，變數內容就是一個function
+        $('#on').on('click', function(){
+            $('#sayHi').on('click',sayHi);
+        });
+         //綁定ID為on的按鈕 點下去後sayHi ID的按鈕按下去會有say hi的綁定
+         $('#off').on('click', function(){
+            $('#sayHi').off('click',sayHi);
+        });//解除綁定.off 記得要綁到同一個人
+    </script>
+</body>
+</html>

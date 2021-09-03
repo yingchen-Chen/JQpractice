@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <button id="on" class="btn btn-primary">click</button>
+    <!-- 只要點了就有甚麼 -->
+    
+    
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+        // 三個要做一樣的事，On綁定事件沒有hover，取而代之的是mouseenter,mouseleave
+        $('button').on("click mouseenter mouseleave" ,function(){
+            //想做甚麼
+            console.log('btn click and mouseenter mouseleave');
+        }
+          
+    );
+    //一次綁定三個動作
+    </script>
+</body>
+</html>

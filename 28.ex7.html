@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            height: 300vh;
+        }
+        .wrap{
+            height: 50px;
+            background-color: rgb(241, 234, 128);
+            position: fixed;/* 因為浮起來了所以要叫一個寬100%把他叫回來 */
+            top: 0; /* 把進度條釘在最上方的位置 */
+            width: 100%;
+            
+        }
+        .box{
+            background-color: cadetblue;
+            height: 50px;
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+
+        </div>
+    </div>
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+        console.log('body height',$('body').height());
+        let bodyHeight = $('body').height();  //任何只要覺得會常常使用的就可以把它設成一個變數
+        
+        $(window).scroll(function(){
+            //1.監聽使用者滾動到哪裡?數字多少
+            // console.log('scrollTop:',$(window).scrollTop());
+            // console.log('scrollTop:',$(window).scrollTop() - bodyHeight); //會發現兩著相減永遠差一個自己的高ex:body height892 / scrollTop() - bodyHeight=-297=892的三分之一
+            let scrollTop = $(window).scrollTop();
+            //2.網頁內容全長多長?
+            // console.log('body height',$('body').height());這句話要拉到scroll外才能直接顯現
+            let bodyHeight = $('body').height(); 
+            //3.計算出目前閱讀的百分比(誰是分母?誰是分子)
+            let windowHeight = $('window').height();
+            console.log('scrollTop - bodyHeight',scrollTop - bodyHeight);
+            console.log('windowHeight', windowHeight);
+            //4.最後把百分比給.box的CSS寬度(width)
+        });
+    </script>
+</body>
+</html>

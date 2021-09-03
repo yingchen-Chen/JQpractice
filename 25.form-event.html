@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+    <form action="">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="EMAIL" value="" placeholder="請輸入email"> 
+          <!-- 給name的原因是要讓人知道收件人是誰，沒有name就收不到這個input(可以去網址列看) -->
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <form action="">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="EMAIL" value="" placeholder="請輸入email"> 
+          <!-- 把type改成text，這樣就有選取器可以選 -->
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+
+
+      <script src="./JS/jquery-3.6.0.js"></script>
+      <script>
+          $('form').submit(function(){
+            //   event.preventDefault(); //讓事件不要做預設的事(也就是回傳資料給自己)
+              console.log('hi',event);
+          });
+          //先監聽整個表單，form表單submit的時候會有一個預設的動作<form action>屬性，沒有設定那submit後資料是送給自己(可去Network看)
+          //even參數:被觸發的這個事件
+          //preventDefault:prevent阻止.default是預設
+
+          $(':text').focus(function(){
+                console.log('focus');
+          })
+         //被foucus的時候執行一個function，偵測某個input必成輸入狀態
+         $(':text').blur(function(){
+                console.log('blur');
+          })
+          //blur偵測當滑鼠離開某個input輸入狀態
+          $(':text').change(function(){
+                console.log('changed');
+          })
+          //偵測到input或select有變化，判定發生在blur之前
+      </script>
+</body>
+</html>

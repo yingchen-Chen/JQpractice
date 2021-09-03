@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 5000vh;
+            width: 5000vw;  /* 先設一個寬高 讓頁面滑桿出現 */
+        }
+    </style>
+</head>
+<body>
+    
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+        $(window).scroll(function(){
+            console.log('scrollTop:',$(this).scrollTop());
+            console.log('scrollLeft:',$(this).scrollLeft());
+        })
+        //先硬記scroll就是長在瀏覽器window身上
+        //scroll偵測滑鼠滾動
+        //scrollTop為JQ內建的偵測上下滑桿位置方法，()內無值>偵測位置，有值>指定位置
+        //scrollLeft為偵測左右滑桿位置
+        $(window).resize(function(){
+            console.log('resize width:', $(this).width());
+            console.log('resize height:',$(window).height());
+        })
+        //resize偵測瀏覽器大小變化,width知道寬,height>知道高
+    </script>
+</body>
+</html>

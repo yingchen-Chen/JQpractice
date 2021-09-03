@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+   <div class="container">
+       <div class="row">
+           <div id="add" class="btn btn-primary">Add</div>
+       </div>
+
+       <div class="row">
+        <p>清單</p>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ul>
+       </div>
+   </div>
+    
+    
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+        $('#add').click(function(){
+            $('ul').append('<li>item 4</li>');
+        })
+        //append():插入一個指定内容
+        
+        // $('li').click(function(){
+        //     console.log('hi li');
+        // })
+        //會發現後來動態產生的item 4怎麼案都沒有hi li 綁定不到，他在上面append新的也不關下面click的事，如果把click綁定放到跟append同一個function裡 會不斷重複綁定浪費資源空間
+        $('ul').on('click','li', function(){
+            console.log('hi li');
+            console.log('hi li',$(this).text());
+        })
+        //new寫法:$(綁定確定已存在的ul可不知道綁誰也可以寫document) 'li'為要被監聽的人
+        //$(this).text()加了這個看起來更清楚綁了誰而已 不是必須
+
+    </script>
+</body>
+</html>

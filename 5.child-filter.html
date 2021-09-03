@@ -9,6 +9,8 @@
 <body>
     <div class="container">
         <div class="row">
+            <p>superman!</p>
+            <p>supercat!</p>
             <div class="box">box1</div>
             <div class="box">box2</div>
             <div class="box">box3</div>
@@ -18,9 +20,55 @@
             <div class="box">box7</div>
             <div class="box">box8</div>
         </div>
+        <div class="container">
+            <div class="row">
+                <p>superman!</p>
+                <p>supercat!</p>
+                <div class="box">box1</div>
+                <div class="box">box2</div>
+                <div class="box">box3</div>
+                <div class="box">box4</div>
+                <div class="box">box5</div>
+                <div class="box">box6</div>
+                <div class="box">box7</div>
+                <div class="box">box8</div>
+            </div>
+            <div class="container">
+                <div class="row">
+              
+                    <div class="box">box1</div>
+                    <div class="box">box2</div>
+                    <div class="box">box3</div>
+                    <div class="box">box4</div>
+                    <div class="box">box5</div>
+                    <div class="box">box6</div>
+                    <div class="box">box7</div>
+                    <div class="box">box8</div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                  
+                        <div class="box">SUPERbox1</div>
+                      
+                    </div>
     <script src="./JS/jquery-3.6.0.js"></script>
     <script>
-        $
+        $('.box:first-child').css('background', 'red');
+        // //classname叫box且是第一個小孩(有父層:row)
+        // $('.box:last-child').css('background', 'yellow');
+        // $('.box:first-of-type').css('background', 'yellow');
+        //first-of-type選取box同類中的第一個，如果前面有其他標籤，那他就不是父層下的第一個child
+        //box:first-child就不會生效了，因為這是box且firstChild雙條件。第一小孩是p的超級人，不是box1了。
+        // $('p:first-of-type').css('color','blue');
+        // $('p:first-child').css('color','pink');
+        //這兩個都會生效，因為超級人的p是row下第一個小孩，也是同p標籤中的第一個
+        // $('.box:nth-child(4)').css('color','green');
+        
+        // $('p:nth-of-type(2)').css('color','blue');
+        $('div:nth-of-type(2)').css('color','purple');
+        //避免用標籤，容易混亂
+        $('div:only-child').css('color','blue');
     </script>    
 </body>
 </html>

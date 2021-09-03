@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     * {
+      margin: 0 ;
+    }
+    
+    .wrap {
+        max-width: 800px;
+        height: 550px;
+        overflow: hidden;
+        position: relative;
+    }
+    ul.train {
+        display: flex;
+        list-style: none;
+        /* 把li的點點削掉 */
+        width: 4000px;
+        padding: 0px;
+        /* 畫面左方有一塊綠色padding */
+        transform: translateX(-800px);
+        transition: 1s;
+    }
+
+    li.carBox img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* 圖片維持原比例，通常會剪掉部分的物件。 */
+    }
+    
+    .slider-dots {
+        display: flex;
+        list-style: none;
+        padding: 0px;
+        position: absolute;
+        /* 下了absolute還不會動 要再之後繼續下移動才會動 */
+        margin: 0 4px;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        /* 位移X軸  */
+    }
+
+    .slider-dots li {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1px solid rgb(255, 255, 255);
+        margin: 2px 2px  10px 10px;
+
+    }
+
+    .slider-dots li:nth-child(1){
+        background :#fff;
+    }
+    /* 設起始的第一個li小孩就有白色點點 */
+</style>
+  
+<body>
+    <div class="wrap">
+        <ul class="train">
+            <li class="carBox"><img src="./imgs/slide1.jpg" alt=""></li>
+            <li class="carBox"><img src="./imgs/slide2.jpg" alt=""></li>
+            <li class="carBox"><img src="./imgs/slide3.jpg" alt=""></li>
+            <li class="carBox"><img src="./imgs/slide4.jpg" alt=""></li>
+            <li class="carBox"><img src="./imgs/slide5.jpg" alt=""></li>
+        </ul>
+        <div class="slider-dots">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </div>
+    </div>
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+        let page =0; //設一個變數叫page //這條是寫到後半段加回來這的
+
+        $('.slider-dots li').hover( function() {
+
+            clearInterval(myIntervalID); //當hover上去的時候就把setInterval運作停止(砍掉)，此code為之後追加
+
+            console.log('index:', $(this).index());
+
+            page = $(this).index(); //這條是寫到後半段加回來這的，讓他自動輪播的index會跟用戶滑鼠移到的index相同之後依著這個index繼續之後的輪播，而不會繼續被用戶打斷之前的順序輪播
+            
+            //目前hover是第幾個LI
+            //index-索引值
+            //我也可以知道我的我車移動多少距離
+            // 0/0
+            // 1/-800
+            // 2/-1600
+            // 3/-2400
+            // 4/-3200
+            //選取我火車的dom，並且修改他的CSS
+            console.log('move x:', $(this).index() * -800);
+            $('ul.train').css('transform',`translateX(${$(this).index()*-800}px)`);
+            //模板字串 (`___${要填的內容}___`)> $ { $(this).index()*-800 }            
+                                            // $ {     要填的內容        }
+            
+            $(this).css('background', '#fff').siblings().css('background', 'transparent');
+            //被點到就變白色，其他沒變點到的就透明
+            }, function () {
+                startInterval()
+            }
+            //當滑鼠hover離開時到時，再繼續開始動
+
+        ); //106行的}是82行的{ , 110行的 ) 是82行的 ( 小心不要漏掉搞混刪掉
+        
+        //設一個變數名(隨便)=setinterval函式執行完後回傳的ID
+        
+        let myIntervalID = ''; //JS中 給個空值或0沒差，下方的function才會真正的得到一個iD
+        
+        //設一個function隨便名來包這個會被反覆使用到的code
+        function startInterval() {
+                myIntervalID = setInterval(() => {
+                page++;
+                // console.log('hi', page);確認設定沒錯的
+            //正常就不斷page+1，但總共只有0.1.2.3.4超過4回到順序0
+                if(page > 4) {
+                    page = 0;
+                }
+                $('ul.train').css('transform',`translateX(${page*-800}px)`); //page變數當成$(this).index()
+                
+                $('.slider-dots li').eq(page).css('background', '#fff').siblings().css('background', 'transparent'); 
+                //輪播誰就變白色，其他沒變點到的就透明
+
+            }, 3000);
+        }
+        //最後建議可以寫完後把115到132的code丟到前面去81行
+
+            myIntervalID = setInterval(() => {
+            page++;
+            // console.log('hi', page);確認設定沒錯的
+          //正常就不斷page+1，但總共只有0.1.2.3.4超過4回到順序0
+            if(page > 4) {
+                page = 0;
+            }
+            $('ul.train').css('transform',`translateX(${page*-800}px)`); //page變數當成$(this).index()
+            
+            $('.slider-dots li').eq(page).css('background', '#fff').siblings().css('background', 'transparent'); 
+            //輪播誰就變白色，其他沒變點到的就透明
+
+        }, 3000);
+        //最後的2000是2000毫秒>兩秒，每至少2秒(會以上)輪播一次
+
+        //  setInterval(() => {
+             
+        //  }, interval);
+
+        //setTimeout() 只會執行一次就結束，而 setInterval() 則是會在間隔固定的時間不斷重複。(JS)interval是秒數填毫秒數，會回傳一個獨立的 timer ID
+
+        setInterval(); //從上讀code讀到這裡ok開始啟動code
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+     <div class="row">
+         <ul class="level-1">
+             <li class="item-1">item-1</li>
+             <li class="item-2">item-2
+                <ul class="level-2">
+                    <li class="item-01">item-01</li>
+                    <li class="item-02">item-02
+                        <ul class="level-3">
+                            <li class="item-001">item-001</li>
+                            <li class="item-002">item-002</li>
+                            <li class="item-003">item-003</li>
+                        </ul>
+                    </li>
+                    <li class="item-03">item-03</li>
+                </ul>
+             </li>
+             <li class="item-3">item-3</li>
+         </ul>
+     </div>
+<script src="./JS/jquery-3.6.0.js"></script>
+<script>
+    // $('.level-3').children('.item-001').css('border','1px solid green'); 
+    // //注意小點點，只往下一層子層找
+    // $('.item-001').parent().css('border','1px solid blue'); 
+    // //001的上一層是UL的level-3
+    // $('.item-001').closest('.level-1').css('border','1px solid blue'); 
+    // //closest最接近祖先直系血親元素
+    // $('.item-001').closest('.item-2').css('border','1px solid yellow');
+    // //item-2是item-001的直系血親沒錯
+    // $('.item-001').closest('.item-1').css('border','1px solid yellow'); 
+    //item-1是旁系，所以沒有改變
+    // $('.item-001').parentsUntil('.level-1').css('border','1px solid black'); 
+    //往上選取全部並設定停止的元素(直到level-1為止，不含level-1的前一個小孩也就是item-1)
+    
+    //最常用的就是往下找find()，往上找closest()
+    $('.item-002').closest('.level-1').find('.item-1').css('border', '1px solid purple');
+    //往上找到祖先，再往下找到孩子 item-1是item-002的旁系尊親屬無法直接往上找到
+</script>
+</body>
+</html>

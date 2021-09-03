@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <table class="table table-bordered mt-5">
+                <tr>
+                    <td>td1</td>
+                    <td>td2</td>
+                    <td>td3</td>
+                    <td>td4</td>
+                    <td>td5</td>
+                </tr>
+                <tr>
+                    <td>td1</td>
+                    <td>td2</td>
+                    <td>td3</td>
+                    <td>td4</td>
+                    <td>td5</td>
+                </tr>
+                <tr>
+                    <td>td1</td>
+                    <td>td2</td>
+                    <td>td3</td>
+                    <td>td4</td>
+                    <td>td5</td>
+                </tr>
+            </table>
+        
+        </div>
+    </div>
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+        $('td').eq(0).css('background', 'yellow');
+        // 所有td中排第編號0的
+        $('td').even().css('background', 'pink');
+        //的偶數02468
+        $('td').odd().css('background', 'lightblue');
+        //的基數13579
+        $('td').eq(0).css('background', 'red');
+        // eq()從編號0開始
+        
+        // $('td').css('background', 'yellow').odd().css('background', 'brown').first().css('background','orange').css('color','white').last().css('color','blue');
+        // 所有td/黃>其中基數改咖啡色>基數中第一格改橘>且第一格文字改白>因為已經縮小範圍在基數第一格所以後蓋前設定，文字變成藍
+        // 遍歷的用法可以好幾層塞選條件
+    </script>
+</body>
+</html>

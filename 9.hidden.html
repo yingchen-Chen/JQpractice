@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div hidden>abc</div> 
+    <!-- hidden會讓contain的東西看不見 -->
+    <div>
+        <p>def</p>
+    </div>
+<script src="./JS/jquery-3.6.0.js"></script>
+<script>
+    $("div:hidden").show();
+    $("div:visible").hide();
+    // hidden被show而看的見，後又因hide而看不見 -->
+</script>
+</body>
+</html>

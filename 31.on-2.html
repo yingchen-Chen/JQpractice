@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <button id="on" class="btn btn-primary">click</button>
+    <!-- 只要點了就有甚麼 -->
+    
+    
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+        //針對一個選擇器綁定多個事件
+                    // {          一個物件             }
+        // $('#on').on({key我要監聽的事件:value要做甚麼事})
+        $('#on').on({
+            mouseenter:function(){
+            console.log('mouseenter');
+            }, 
+            click:function(){
+                console.log('click');
+            },
+            dblclick:function(){
+                console.log('dbclick');
+            }
+    });
+    //一次綁定三個動作
+    </script>
+</body>
+</html>

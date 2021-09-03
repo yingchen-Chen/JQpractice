@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .box{
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+      }
+    </style>
+</head>
+   <div class="box">box</div>
+<body>
+  
+  <div class="box">box</div>
+      
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+        $('.box').click(function(){
+           console.log('clicked');
+         })
+        $('.box').dblclick(function(){
+           console.log('dblclicked');
+         })
+         //讀取完HTML後就要綁定事件效果>第二個事件不能放在第一個function裡，要分開兩個
+         //如果第二個放在第一個function裡>第一個function被觸發了之後裡面的第二個事件才會被綁定，如果外面的function一直不觸發則永遠無法綁定
+
+         $('.box').contextmenu(function(){
+           console.log('contextmenu');
+         })//右鍵觸發menu
+         
+         $('.box').mouseup(function(){
+           console.log('mouseup');
+         })//放開左鍵時
+
+         $('.box').mousedown(function(){
+           console.log('mousedown');
+         })//按下左鍵時
+
+         $('.box').hover(function(){
+           console.log('hover');
+         })
+
+         $('.box').mouseenter(function(){
+           console.log('mouseenter');
+         })
+
+         $('.box').mouseleave(function(){
+           console.log('mouseleave');
+         })
+    </script>
+</body>
+</html>

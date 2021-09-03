@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .box{
+        width: 100px;
+        height: 100px;
+        background-color: rgb(167, 219, 70);
+      }
+    </style>
+</head>
+<body>
+     <div class="box">box1</div>
+     <div class="box">box2</div>
+     <div class="box">box3</div>
+     <div class="box">box4</div>
+      
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+       $('.box').click(function(){
+        //  console.log('say hi'); //步驟1
+        console.log($(this).text(),'say hi'); //步驟4
+       //點擊事件.click()，function(){我希望他做甚麼事}
+       //想一個代名詞代表被點到的那個人---->THIS:誰觸發function誰就是THIS!
+      //  console.log('this', $(this).text()); 步驟2 //先確認你沒有設定錯人(使用console確認)再開始寫效果。可以只打console.log($(this));測試過效果一毛一樣只是CONSOLE裡少了前面this。//text()拿到裡面的文字box幾
+       $(this).css('background','pink'); //步驟3
+       
+      
+      })
+      
+      
+    </script>
+</body>
+</html>

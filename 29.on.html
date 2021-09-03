@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="clickMe">Click</button>
+    
+    
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+       $('#clickMe').click(function(){
+           console.log('hi');
+       });
+       $('#clickMe').on('click', function(){
+           console.log('hi');
+       });
+       //$(選擇器 #clickMe (原本就存在HTML上之元素)).on( 觸發方式 click (原本的”click”,”mouseenter”…等) [, 程式動態產生的元素([]的東西可有可不有) ] , 事件處理(function(){}) console.log('hi') )
+
+    //    使用.on的時機
+    //    DOM 是後來才產生的時候綁定事件
+    //     一個 selector 需要綁定多個事件時
+    //     不同事件觸發一樣的動作時
+
+
+
+    </script>
+</body>
+</html>

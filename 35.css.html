@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color:#aff;
+            }
+    </style>
+</head>
+<body>
+    <div class="box">box</div>
+    <script src="./JS/jquery-3.6.0.js"></script>
+    <script>
+        console.log('box background-color:',$('.box').css('background-color')); //get他的bgc是什麼顏色資料
+
+        
+        // $('.box').on('click', function() {
+        //     if($('.box').css('background-color')==='rgb(170, 255, 255)'){
+        //         $(this).css('background-color','pink').css('color','#fff'); //如果box顏色為#aff>點下去改粉紅色否則改回#aff(要放上rgb色)
+        //     }
+        //     else{
+        //         $(this).css('background-color','rgb(170, 255, 255)').css('color','rgb(0, 0, 0)');
+        //     }
+            
+        // })
+        // 第二種寫法
+        var style ={
+            color: "#fff",
+            background: '#000',
+        //    key:value。宣告一個變數
+        };
+
+        $('.box').on('click', function() {
+            if($('.box').css('background-color')==='rgb(170, 255, 255)'){
+                $(this).css(style);
+            }
+            else {
+                $(this).css('background-color','rgb(170, 255, 255)').css('color','rgb(0, 0, 0)');
+            }
+        });
+    </script>
+</body>
+</html>
